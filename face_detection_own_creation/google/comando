@@ -1,0 +1,25 @@
+#!/bin/bash
+
+set +x
+
+arg=1;
+while (( $arg < 50 )) ; do
+
+	link='http://www.gettyimages.fr/search/2/image?excludenudity=true&family=creative&numberofpeople=none&page='
+	link=$link$arg
+	link=$link'&sort=best#license'
+
+#	echo 'Valor de link: '$link;
+
+	#read -r;
+
+	wget -nd -N -H -k -E -p -R .1,js,html,css,svg -P ./negative -e robots=off $link
+	
+	(( arg = arg + 1 ));
+
+#	echo "Valor de arg: $arg";
+	#read -r;
+done
+
+exit
+
