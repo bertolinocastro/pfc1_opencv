@@ -69,7 +69,7 @@ void detectAndDisplay( Mat frame ){
 
 	#pragma omp parallel for schedule(dynamic,1) num_threads(4)
 	for( size_t i = 0; i < faces.size(); i++ ){
-		cout << "NUmero de threads: " << omp_get_num_threads() << endl;
+		// cout << "NUmero de threads: " << omp_get_num_threads() << endl;
 		Point center(	faces[i].x + faces[i].width/2,
 						faces[i].y + faces[i].height/2
 			);
